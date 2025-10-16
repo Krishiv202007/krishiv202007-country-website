@@ -1,0 +1,593 @@
+/* =========================
+   Cuisine Page Styles
+========================= */
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----------------- Body ----------------- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2e6d9; /* soft warm beige */
+    margin: 0;
+    padding-top: 80px; /* space for fixed navbar */
+    color: #3b2e1e;
+}
+
+/* ----------------- Navbar ----------------- */
+.navbar {
+    position: fixed;
+    top: 20px;
+    right: 0.5px;
+    background-color: rgba(0, 0, 0, 0.6); /* semi-transparent */
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* ----------------- Skip Link ----------------- */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    background: #333;
+    color: #ded7d7;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: top 0.3s ease;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* ----------------- Page Header ----------------- */
+.page-header {
+    background-color: #5a3a1b; /* dark brown */
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 0;
+}
+
+.page-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.page-header p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* ----------------- Section & Headings ----------------- */
+section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+section h2 {
+    font-size: 2em;
+    color: #3b2e1e;
+    margin-bottom: 25px;
+}
+
+/* ----------------- Image Grid ----------------- */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    justify-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Each Dish Box */
+.dish {
+    background-color: #3a200c; /* brown box */
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dish img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    transition: transform 0.3s ease;
+}
+
+.dish p {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* ----------------- Hover / Touch Effect ----------------- */
+.dish:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+}
+
+.dish:hover img {
+    transform: scale(1.05);
+}
+
+/* ----------------- Footer ----------------- */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #a3611f;
+    color: #b7a8a8;
+    margin-top: 40px;
+}
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 900px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dish {
+        width: 90%;
+    }
+}
+/* =========================
+   Attraction Page Grid Layout
+   Fixed size images with frames
+========================= */
+
+body#attraction-page .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* auto grid */
+    gap: 20px; /* spacing between images */
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+body#attraction-page .gallery-item {
+    border: 6px solid #fff; /* frame */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 250px; /* fixed height for all images */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body#attraction-page .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ensures image fills the frame */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+body#attraction-page .gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Caption overlay */
+body#attraction-page .caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body#attraction-page .gallery-item:hover .caption {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media(max-width:768px){
+    body#attraction-page .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    body#attraction-page .gallery-item {
+        height: 200px;
+    }
+}
+
+@media(max-width:480px){
+    body#attraction-page .gallery-item {
+        height: 180px;
+    }
+}
+/* =========================
+   Attraction Page – Row of Images in Background Box
+========================= */
+
+body#attraction-page .gallery {
+    display: flex;
+    flex-wrap: wrap; /* allows wrapping on smaller screens */
+    justify-content: center; /* center the images */
+    gap: 20px; /* space between images */
+    background-color: #f0e6d2; /* colored box behind images */
+    padding: 30px 20px;
+    border-radius: 15px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+body#attraction-page .gallery-item {
+    flex: 1 1 250px; /* each image takes min 250px and grows */
+    max-width: 300px; /* max width */
+    height: 250px; /* fixed height */
+    border: 5px solid #fff; /* white frame */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+body#attraction-page .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ensures image fills the frame */
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+body#attraction-page .gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Caption overlay */
+body#attraction-page .caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body#attraction-page .gallery-item:hover .caption {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media(max-width:900px){
+    body#attraction-page .gallery-item {
+        flex: 1 1 45%; /* two images per row */
+        height: 220px;
+    }
+}
+
+@media(max-width:600px){
+    body#attraction-page .gallery-item {
+        flex: 1 1 100%; /* one image per row */
+        height: 200px;
+    }
+}
+/* =========================
+   Attraction Page – Zig-Zag Image Layout
+   Add at the end of main.css
+========================= */
+
+body#attraction-page .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+body#attraction-page .gallery-item {
+    background-color: #f0e6d2; /* frame color behind image */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    width: 300px;  /* fixed width for all images */
+    height: 220px; /* fixed height for all images */
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body#attraction-page .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 3px solid #fff; /* white frame around image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Zig-Zag effect: alternating items up and down */
+body#attraction-page .gallery-item:nth-child(odd) {
+    margin-top: 0;
+}
+
+body#attraction-page .gallery-item:nth-child(even) {
+    margin-top: 30px;
+}
+
+/* Hover effect: slightly enlarge image and lift box */
+body#attraction-page .gallery-item:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+}
+
+body#attraction-page .gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Caption overlay inside the frame */
+body#attraction-page .caption {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    font-size: 0.9em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body#attraction-page .gallery-item:hover .caption {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    body#attraction-page .gallery-item {
+        width: 45%;
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    body#attraction-page .gallery-item {
+        width: 90%;
+        height: 180px;
+        margin-top: 0 !important;
+    }
+}
+/* ------------------ Credits Page Styles ------------------ */
+body#credits-page {
+    font-family: Arial, sans-serif;
+    background-color: #3a200c; /* full-page background */
+    color: #000000;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* ensures background covers full viewport */
+}
+
+/* Container */
+body#credits-page .credits-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Page Title */
+body#credits-page .credits-title {
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 20px;
+    color: #ff5722;
+    animation: fadeInDown 1.5s ease;
+}
+
+/* Intro Paragraph */
+body#credits-page .credits-intro {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+    color: #fffcfc;
+    animation: fadeInUp 1.5s ease;
+}
+
+/* Section Titles */
+body#credits-page .credit-section h2 {
+    font-size: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #ff9800;
+    padding-bottom: 5px;
+    display: inline-block;
+    color: #ff5722;
+    animation: fadeInLeft 1s ease;
+}
+
+/* Tables */
+body#credits-page .credit-section table {
+    width: 100%; /* full width of container */
+    max-width: 100%; /* ensure no overflow on mobile */
+    margin: 0 auto 40px auto; /* center tables */
+    border-collapse: collapse;
+    font-size: 1rem;
+    background-color: #dc861d;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease;
+}
+
+/* Table headers and cells */
+body#credits-page .credit-section th,
+body#credits-page .credit-section td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+body#credits-page .credit-section th {
+    background-color: #dc861d;
+    color: #010101;
+    font-weight: 600;
+}
+
+body#credits-page .credit-section tr:nth-child(even) {
+    background-color: #dc861d;;
+}
+
+body#credits-page .credit-section tr:hover {
+    background-color: #ffe0b2;
+    transform: translateX(3px);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Links */
+body#credits-page .credit-section a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+body#credits-page .credit-section a:hover {
+    color: #ff5722;
+    transform: scale(1.05);
+}
+
+/* Footer */
+body#credits-page footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #ffe082; /* matches page warm palette */
+    font-size: 0.95rem;
+    color: #161616;
+    margin-top: 50px;
+    border-top: 2px solid #ff9800;
+}
+
+/* ------------------ Animations ------------------ */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+    0% { opacity: 0; transform: translateX(-30px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 1024px) {
+    body#credits-page .credits-title {
+        font-size: 2.5rem;
+    }
+
+    body#credits-page .credit-section h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body#credits-page .credits-title {
+        font-size: 2.2rem;
+    }
+
+    body#credits-page .credit-section h2 {
+        font-size: 1.4rem;
+    }
+
+    body#credits-page .credit-section table th,
+    body#credits-page .credit-section table td {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body#credits-page .credits-title {
+        font-size: 1.8rem;
+    }
+
+    body#credits-page .credit-section h2 {
+        font-size: 1.2rem;
+    }
+
+    body#credits-page .credit-section table {
+        font-size: 0.9rem;
+    }
+
+    body#credits-page .credit-section table th,
+    body#credits-page .credit-section table td {
+        padding: 8px;
+    }
+}
