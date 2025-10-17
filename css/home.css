@@ -88,7 +88,7 @@
         font-size: 2rem;
     }
     .hero-content blockquote {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     .nav-links {
         flex-direction: column;
@@ -96,12 +96,20 @@
         background-color: rgba(0,0,0,0.6); /* slightly darker for mobile */
         padding: 0.5rem;
         border-radius: 8px;
-    }
+        /* Fix: center the links horizontally */
+    align-items: center;       /* centers items horizontally in column layout */
 }
+    }
+
 .pacifico-regular {
   font-family: "Pacifico", cursive;
   font-weight: 400;
   font-style: normal;
+  .nav-links a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
 }
 /* Feature branch update 1: adjusted mobile layout */
 /* Feature update 2: adjusted credits page table alignment */
